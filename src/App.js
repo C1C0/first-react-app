@@ -1,8 +1,9 @@
-// Functions approach
+import Header from "./components/Header";
+
 function App() {
   return (
     <div className="container">
-      <h1>Hello React app</h1>
+      <Header />
     </div>
   );
 }
