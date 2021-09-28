@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
+// Functions approach
 function App() {
   return (
+    // className = class=""
+    // htmlFor = <label for="">
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
