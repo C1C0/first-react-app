@@ -1,5 +1,4 @@
-// rafce - emet from vscode extension
-import React from 'react'
+import PropTypes from "prop-types"
 
 const Header = (props) => {
     return (
@@ -11,6 +10,10 @@ const Header = (props) => {
 
 Header.defaultProps = {
     title: "Default Title",
+}
+
+Header.propTypes = {
+    title: PropTypes.string,
 }
 
 export default Header
