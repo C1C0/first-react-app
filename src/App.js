@@ -1,12 +1,11 @@
-import React from "react";
+import Header from "./components/Header";
 
-// restart of the dev. server needed 
-class App extends React.Component {
-  render() {
-    return <>
-    <h1>Hello world 1</h1>
-    </>
-  }
+function App() {
+  return (
+    <div className="container">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
