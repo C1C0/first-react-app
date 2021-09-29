@@ -15,13 +15,13 @@
     {
       "text": "sdfdas",
       "day": "fdsafasf",
-      "reminder": true,
+      "reminder": false,
       "id": 3
     },
     {
       "text": "dfas",
       "day": "ffdsafas",
-      "reminder": true,
+      "reminder": false,
       "id": 4
     }
   ]
