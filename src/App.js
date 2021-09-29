@@ -39,11 +39,20 @@ function App() {
     );
   };
 
+  // add task
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+
+    const newTask = {id, ...task};
+
+    setTasks([...tasks, newTask]);
+  };
+
   return (
     <div className="container">
       <Header />
 
-      <AddTask />
+      <AddTask onAdd={addTask}/>
 
       {/* Tasks */}
       {tasks.length > 0 ? (
