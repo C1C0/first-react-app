@@ -27,7 +27,7 @@ function App() {
   // Delete task
   const deleteTask = async (id) => {
 
-    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" })
+    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
 
     setTasks(tasks.filter((task) => task.id !== id));
   };
@@ -42,12 +42,17 @@ function App() {
   };
 
   // add task
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
+  const addTask = async (task) => {
+    const response = await fetch(`http://localhost:5000/tasks`, {
+      method: "POST", headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(task),
+    });
 
-    const newTask = { id, ...task };
+    const data = await response.json();
 
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, data]);
   };
 
   return (
