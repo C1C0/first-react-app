@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import { useState } from "react";
 import AddTask from "./components/AddTask";
 
 function App() {
@@ -26,7 +25,10 @@ function App() {
   };
 
   // Delete task
-  const deleteTask = (id) => {
+  const deleteTask = async (id) => {
+
+    await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" })
+
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
