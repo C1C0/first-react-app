@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import { useState } from "react";
@@ -6,6 +7,23 @@ import AddTask from "./components/AddTask";
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getTasks = (async () => {
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
+    })();
+  }, []);
+
+  const fetchTasks = async () => {
+    console.log('called');
+
+    const res = await fetch("http://localhost:5000/tasks");
+
+    const data = await res.json();
+
+    return data;
+  };
 
   // Delete task
   const deleteTask = (id) => {
@@ -32,7 +50,7 @@ function App() {
 
   return (
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} propShowAddTask={showAddTask}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} propShowAddTask={showAddTask} />
 
       {showAddTask && <AddTask onAdd={addTask} />}
 
